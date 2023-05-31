@@ -12,11 +12,7 @@ services:
     ports:
       - 3001:3001
     environment:
-      - DB_PASS=password
-      - DB_USER=root
-      - DB_NAME=humans
-      - DB_HOST=database
-      - DB_PORT=3306
+      - MONGO_URI=mongodb://database:27017/databaseName
       - PORT=3001
     depends_on:
       - database
@@ -24,13 +20,11 @@ services:
       - api_network
 
   database:
-    image: mysql:8.0.21
     container_name: container_db
+    image: mongo:5.0.7
     restart: always
     ports:
-      - 3306:3306
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - 27017:27017
     networks:
       - api_network
 

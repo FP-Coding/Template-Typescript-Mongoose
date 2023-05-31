@@ -10,6 +10,5 @@ COPY . ./
 
 EXPOSE 3001
 
-ENTRYPOINT [ "sh" ]
-# ENTRYPOINT ["npm", "run"]
-# CMD ["dev"]
+ENTRYPOINT ["npm", "run"]
+CMD ["dev"]

@@ -8,10 +8,9 @@
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
     "test:coverage": "nyc npm run test",
     "test:coverage:json": "nyc --reporter=json-summary npm run test",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "prestart": "npm run build && npm run db:reset",
-    "predev": "npm run build && npm run db:reset",
+    "prestart": "npm run build",
     "start": "node .",
+    "predev": "npm run build",
     "dev": "ts-node-dev ."
   },
   "repository": {
@@ -34,9 +33,10 @@
     "@types/joi": "17.2.3",
     "@types/jsonwebtoken": "9.0.2",
     "@types/mocha": "10.0.1",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "20.2.5",
-    "@types/sequelize": "4.28.15",
     "@types/sinon": "10.0.15",
+    "@types/sinon-chai": "^3.2.9",
     "@typescript-eslint/eslint-plugin": "5.59.8",
     "@typescript-eslint/parser": "5.59.8",
     "chai": "4.3.7",
@@ -45,8 +45,8 @@
     "mocha": "10.2.0",
     "nodemon": "2.0.22",
     "nyc": "15.1.0",
-    "sequelize-cli": "6.3.0",
     "sinon": "15.1.0",
+    "sinon-chai": "^3.7.0",
     "ts-node-dev": "2.0.0",
     "typescript": "5.0.4"
   },
@@ -57,7 +57,6 @@
     "express-async-errors": "3.1.1",
     "joi": "17.9.2",
     "jsonwebtoken": "9.0.0",
-    "mysql2": "2.3.3",
-    "sequelize": "6.25.5"
+    "mongoose": "6.1.8"
   }
 }
