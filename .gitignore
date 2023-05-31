@@ -1,0 +1,24 @@
+# compiled output
+/dist
+/build
+/tmp
+/out-tsc
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# nyc test coverage
+.nyc_output
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env

@@ -1,0 +1,39 @@
+version: '3'
+# local:container
+services:
+  api:
+    build: .
+    container_name: container_api
+    restart: always
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app/backend
+    ports:
+      - 3001:3001
+    environment:
+      - DB_PASS=password
+      - DB_USER=root
+      - DB_NAME=humans
+      - DB_HOST=database
+      - DB_PORT=3306
+      - PORT=3001
+    depends_on:
+      - database
+    networks:
+      - api_network
+
+  database:
+    image: mysql:8.0.21
+    container_name: container_db
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - api_network
+
+networks:
+  api_network:
+    driver: bridge
