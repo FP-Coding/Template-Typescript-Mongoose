@@ -1,1 +1,1 @@
-# Template-Typescript-Sequelize
+# Template-Typescript-Mongoose
